@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
 
 :root {
-    --primary: #f41469;
-    --primary-dark: #a6700;
-    --primary-light: rgba(244, 20, 105, 0.1);
+    --primary: #D4AF37;
+    --primary-dark: #B8860B;
+    --primary-light: rgba(212, 175, 55, 0.15);
     --bg-cream: #faf9f7;
     --bg-white: #ffffff;
     --bg-dark: #1a1a1a;
     --text-dark: #1a1a1a;
     --text-light: #666666;
     --text-muted: #999999;
-    --accent: #fcb605;
-    --gold: #f41469;
+    --accent: #D4AF37;
+    --gold: #D4AF37;
     --green: #2e7d32;
     --border: rgba(26, 26, 26, 0.1);
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
-    --gold-gradient: linear-gradient(135deg, #f41469 0%, #fcb605 50%, #a6700 100%);
+    --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F5D77A 50%, #D4AF37 100%);
 }
 
 * {
@@ -133,7 +133,7 @@ img {
 .logo-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: linear-gradient(135deg, #D4AF37 0%, #F5D77A 30%, #D4AF37 70%, #F5D77A 100%);
     color: var(--bg-white);
     border-radius: 50%;
     display: flex;
@@ -142,6 +142,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
     font-weight: 700;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
 }
 
 .logo-text {
@@ -301,17 +302,18 @@ img {
 
 .hero-tag {
     display: inline-block;
-    background: rgba(201, 169, 97, 0.9);
-    border: 2px solid var(--primary);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.95) 0%, rgba(245, 215, 122, 0.95) 100%);
+    border: 2px solid #D4AF37;
     padding: 10px 24px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 25px;
-    color: #fff;
+    color: #1a1a1a;
     text-transform: uppercase;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
 .hero-content h1 {
