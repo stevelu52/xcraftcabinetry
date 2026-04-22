@@ -172,13 +172,31 @@ document.addEventListener('DOMContentLoaded', function() {
     filterLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href && href.includes('#')) {
-                // Let the link navigate, but we need to handle it on products page
+            const filter = this.dataset.filter;
+            
+            // Check if we're on products page or will navigate to products page
+            if (href && href.includes('products.html')) {
+                // If already on products page, handle the filter directly
+                if (window.location.pathname.includes('products.html') || window.location.pathname.endsWith('/')) {
+                    e.preventDefault();
+                    window.location.hash = filter;
+                    
+                    // Apply the filter
+                    const targetTab = document.querySelector('.filter-tab[data-filter="' + filter + '"]');
+                    if (targetTab) {
+                        filterTabs.forEach(t => t.classList.remove('active'));
+                        targetTab.classList.add('active');
+                        applyFilter(filter);
+                        setTimeout(() => {
+                            targetTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 50);
+                    }
+                }
             }
         });
     });
 
-    // Handle hash changes (when clicking dropdown links while already on products page)
+    // Handle hash changes
     window.addEventListener('hashchange', function() {
         const hash = window.location.hash.replace('#', '');
         if (hash && hash.length > 0) {
