@@ -295,31 +295,37 @@ img {
     z-index: 10;
     color: var(--bg-white);
     max-width: 700px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-tag {
     display: inline-block;
-    background: rgba(201, 169, 97, 0.2);
-    border: 1px solid var(--primary);
-    padding: 8px 20px;
+    background: rgba(201, 169, 97, 0.9);
+    border: 2px solid var(--primary);
+    padding: 10px 24px;
     border-radius: 30px;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 25px;
-    color: var(--accent);
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .hero-content h1 {
     font-size: 68px;
     margin-bottom: 25px;
     line-height: 1.1;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 
 .hero-content p {
     font-size: 18px;
-    opacity: 0.9;
+    opacity: 0.95;
     margin-bottom: 40px;
     max-width: 520px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .hero-buttons {
