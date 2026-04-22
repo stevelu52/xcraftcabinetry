@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const paversSection = document.querySelector('.pavers-showcase');
         const flooringBrandsSection = document.querySelector('.flooring-brands');
         
-        if (hash && hash !== 'products.html') {
+        if (hash && hash.length > 0) {
             const targetTab = document.querySelector('.filter-tab[data-filter="' + hash + '"]');
             if (targetTab) {
                 filterTabs.forEach(t => t.classList.remove('active'));
