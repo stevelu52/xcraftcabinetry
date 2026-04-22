@@ -185,18 +185,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const paversSection = document.querySelector('.pavers-showcase');
         const flooringBrandsSection = document.querySelector('.flooring-brands');
         
+        // Only run filter logic if we're on products page and have filter tabs
+        if (!allTab) {
+            return;
+        }
+        
         if (hash && hash.length > 0) {
+            // Clear hash from URL after using it (optional - keeps URL clean)
+            // window.history.replaceState(null, null, ' ');
             const targetTab = document.querySelector('.filter-tab[data-filter="' + hash + '"]');
+            console.log('Processing hash:', hash, 'Target tab found:', !!targetTab);
             if (targetTab) {
                 filterTabs.forEach(t => t.classList.remove('active'));
                 targetTab.classList.add('active');
                 applyFilter(hash);
+                // Scroll to the filter tab
                 setTimeout(() => {
-                    const targetId = 'tab-' + hash;
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
+                    targetTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 100);
                 return;
             }
