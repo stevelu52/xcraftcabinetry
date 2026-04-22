@@ -167,23 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navigation dropdown filter links
-    const filterLinks = document.querySelectorAll('.filter-link');
-    filterLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const filter = this.dataset.filter;
-            const href = this.getAttribute('href');
-            const currentPage = window.location.pathname.split('/').pop();
-            
-            // Only intercept if we're on products.html and clicking on a filter link
-            if (currentPage === 'products.html' || currentPage === '') {
-                if (href && href.includes('products.html#')) {
-                    // Let the link work naturally - it will navigate to products.html#filter
-                    // The initFilter function will handle the hash
-                }
-            }
-        });
-    });
+    // Navigation dropdown filter links - removed custom click handlers to let links work naturally
 
     // Show all products on page load (check for hash filter)
     function initFilter() {
