@@ -1055,6 +1055,7 @@ img {
     transition: var(--transition);
     font-size: 16px;
     font-weight: 500;
+    scroll-margin-top: 100px;
 }
 
 .filter-tab:hover,
@@ -1721,9 +1722,11 @@ img {
         grid-template-columns: 1fr;
     }
     
-    .filter-tabs {
-        gap: 12px;
-    }
+.filter-tabs {
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    scroll-margin-top: 120px;
+}
     
     .filter-tab {
         padding: 12px 24px;
