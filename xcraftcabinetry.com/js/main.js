@@ -167,7 +167,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navigation dropdown filter links - removed custom click handlers to let links work naturally
+    // Navigation dropdown filter links - handle clicks to scroll to section
+    const filterLinks = document.querySelectorAll('.filter-link');
+    filterLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.includes('#')) {
+                // Let the link navigate, but we need to handle it on products page
+            }
+        });
+    });
+
+    // Handle hash changes (when clicking dropdown links while already on products page)
+    window.addEventListener('hashchange', function() {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && hash.length > 0) {
+            const targetTab = document.querySelector('.filter-tab[data-filter="' + hash + '"]');
+            if (targetTab) {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                targetTab.classList.add('active');
+                applyFilter(hash);
+                targetTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
 
     // Show all products on page load (check for hash filter)
     function initFilter() {
