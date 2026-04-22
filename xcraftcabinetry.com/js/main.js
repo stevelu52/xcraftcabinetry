@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productCards = document.querySelectorAll('.product-card');
 
     // Handle footer product links on products page
-    document.querySelectorAll('.footer-col a[href^="products.html#"]').forEach(link => {
+    document.querySelectorAll('.footer-col a[href^="products.html#"], a[href^="products.html#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             const hash = this.getAttribute('href').split('#')[1];
             const targetTab = document.querySelector('.filter-tab[data-filter="' + hash + '"]');
@@ -76,7 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterTabs.forEach(t => t.classList.remove('active'));
                 targetTab.classList.add('active');
                 applyFilter(hash);
-                window.scrollTo(0, 0);
+                const targetId = 'tab-' + hash;
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }
         });
     });
@@ -207,6 +211,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterTabs.forEach(t => t.classList.remove('active'));
                 targetTab.classList.add('active');
                 applyFilter(hash);
+                setTimeout(() => {
+                    const targetId = 'tab-' + hash;
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
                 return;
             }
         }
