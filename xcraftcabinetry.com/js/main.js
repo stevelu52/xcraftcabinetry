@@ -172,19 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
     filterLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const filter = this.dataset.filter;
+            const href = this.getAttribute('href');
             const currentPage = window.location.pathname.split('/').pop();
             
-            if (currentPage === 'products.html') {
-                e.preventDefault();
-                filterTabs.forEach(t => {
-                    if (t.dataset.filter === filter) {
-                        filterTabs.forEach(x => x.classList.remove('active'));
-                        t.classList.add('active');
-                    }
-                });
-                applyFilter(filter);
-            } else {
-                this.href = 'products.html#' + filter;
+            // Only intercept if we're on products.html and clicking on a filter link
+            if (currentPage === 'products.html' || currentPage === '') {
+                if (href && href.includes('products.html#')) {
+                    // Let the link work naturally - it will navigate to products.html#filter
+                    // The initFilter function will handle the hash
+                }
             }
         });
     });
