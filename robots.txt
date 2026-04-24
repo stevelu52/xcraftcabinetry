@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stevelu52.github.io/xcraftcabinetry/sitemap.xml
+Sitemap: https://xcraftcabinetry.com/sitemap.xml
